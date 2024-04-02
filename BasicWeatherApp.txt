@@ -1,11 +1,11 @@
-# import required modules 
+#OIB SIP TASK NO.3
+#WEATHER FORECAST APPLICATION
+ 
 from configparser import ConfigParser 
 import requests 
 from tkinter import *
 from tkinter import messagebox 
 
-# extract key from the 
-# configuration file 
 config_file = "config.ini"
 config = ConfigParser() 
 config.read(config_file) 
@@ -13,9 +13,7 @@ api_key = '652a79003b9a01700d0e956d5548674d'
  
 url = 'http://api.openweathermap.org/data/2.5/weather?q={}&appid={}'
 
-
-# explicit function to get 
-# weather details 
+# explicit function to get weather details
 def getweather(city): 
 	result = requests.get(url.format(city, api_key)) 
 	
@@ -32,9 +30,7 @@ def getweather(city):
 	else: 
 		print("NO Content Found") 
 
-
-# explicit function to 
-# search city 
+# explicit function to search city
 def search(): 
 	city = city_text.get() 
 	weather = getweather(city) 
@@ -45,13 +41,10 @@ def search():
 	else: 
 		messagebox.showerror('Error', "Cannot find {}".format(city)) 
 
-
-# Driver Code 
-# create object 
 app = Tk() 
-# add title 
+ 
 app.title("Weather App") 
-# adjust window size 
+
 app.geometry("300x300") 
 
 # add labels, buttons and text 
